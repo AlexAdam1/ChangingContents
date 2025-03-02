@@ -9,10 +9,8 @@ public class ChangingContents {
     public static void main(String[] args) throws IOException {
         FileInputStream fileByteStream= new FileInputStream("C://Users//atabo//OneDrive//Documents//Intermediate Java//Park//ParkPhotos.txt");
         Scanner inFS = new Scanner(fileByteStream);
-        Scanner termCount = new Scanner(fileByteStream);
         PrintWriter output = new PrintWriter("C:/Users/atabo/OneDrive/Documents/Intermediate Java/Park/ParkPhotosUpdated.txt");
         String placeHolder;
-        String fileNum;;
         int count = 12;
         String [] contents = new String [count];
         while (inFS.hasNextLine()) {
