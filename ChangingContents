@@ -1,0 +1,38 @@
+import java.io.FileInputStream;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.io.IOException;
+import java.io.*;
+
+public class ChangingContents {
+    public static void main(String[] args) throws IOException {
+        FileInputStream fileByteStream= new FileInputStream("C://Users//atabo//OneDrive//Documents//Intermediate Java//Park//ParkPhotos.txt");
+        Scanner inFS = new Scanner(fileByteStream);
+        Scanner termCount = new Scanner(fileByteStream);
+        PrintWriter output = new PrintWriter("C:/Users/atabo/OneDrive/Documents/Intermediate Java/Park/ParkPhotosUpdated.txt");
+        String placeHolder;
+        String fileNum;;
+        int count = 12;
+        String [] contents = new String [count];
+        while (inFS.hasNextLine()) {
+            for (int i = 0; i < count; i++) {
+                placeHolder = inFS.nextLine();
+                if (placeHolder.contains("_photo.jpg")) {
+                    String swap = placeHolder.replace("_photo.jpg", "_info.txt");
+                    System.out.println(swap);
+                    output.println(swap);
+                    contents[i]= swap;
+
+                }
+            }
+        }
+        PrintWriter output2 = new PrintWriter("C://Users//atabo//OneDrive//Documents//Intermediate Java//Park//ParkPhotos.txt");
+        for (int i = 0; i < count; i++) {
+            output2.println(contents[i]);
+        }
+        output.close();
+        output2.close();
+        fileByteStream.close();
+        }
+    }
